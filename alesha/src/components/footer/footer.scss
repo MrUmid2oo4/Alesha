@@ -1,5 +1,14 @@
 @import '../../assets/styles/root.scss';
 
+// Подключение Font Awesome
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/brands"; // для брендовых иконок
+@import "~@fortawesome/fontawesome-free/scss/solid"; // для solid иконок
+@import "~@fortawesome/fontawesome-free/scss/regular"; // для regular иконок
+
+
+
 .footer {
     background-color: $white-main;
     padding: 50px 0 30px;
@@ -117,25 +126,26 @@
 
     &__bottom {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: center;
+        flex-direction: column; // Изменяем на колонку
+        align-items: center; // Центрируем по горизонтали
         gap: 20px;
 
         p {
             font-size: 13px;
             color: $gray-dark;
             margin: 0;
+            order: 2;
         }
     }
 
     &__social {
         display: flex;
         gap: 15px;
+        order: 1;
 
         a {
             color: $green-main;
-            font-size: 18px;
+            font-size: 25px;
             transition: color 0.2s;
 
             &:hover {
