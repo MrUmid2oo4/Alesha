@@ -1,0 +1,92 @@
+@import '../../assets/styles/root.scss';
+
+.about__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 60px 40px;
+}
+
+// Заголовок с полосками по бокам
+.about__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+  position: relative;
+  
+
+  h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: $black-main;
+    padding: 0 30px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+  
+  &::before, &::after {
+    content: '';
+    margin-top: 5px;
+    height: 4px;
+    background-color: $green-main;
+    border-radius: 10px;
+    flex: 1;
+    max-width: 50px;
+  }
+}
+
+.about__content {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  margin-top: 40px;
+  
+  .about__image {
+    flex: 0 0 45%;
+    
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  
+  .about__wrapper {
+    padding: 0 6rem;
+    
+    h2 {
+      font-size: 48px;
+      color: $black-main;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: $gray-dark;
+      margin-bottom: 20px;
+      
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+// Адаптивность для мобильных устройств
+@media (max-width: 768px) {
+  .about__content {
+    flex-direction: column;
+    
+    .about__image, .about__wrapper {
+      flex: 0 0 100%;
+    }
+  }
+  
+  .about__header {
+    h1 {
+      font-size: 28px;
+    }
+  }
+}

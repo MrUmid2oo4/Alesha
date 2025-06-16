@@ -1,0 +1,23 @@
+// Layout variables
+$container-width: 1920px;
+$columns: 12;
+$column-width: 88px;
+$gutter: 20px;
+
+.layout-container {
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 0 $gutter;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@mixin col($n) {
+  width: calc(
+    #{$column-width * $n} + #{$gutter * ($n - 1)}
+  );
+  margin-right: $gutter;
+  &:last-child {
+    margin-right: 0;
+  }
+}
