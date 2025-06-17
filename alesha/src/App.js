@@ -4,6 +4,7 @@ import './i18n';
 import Header from './components/header/Header';
 import About from './components/about/About';
 import Review from './components/review/Review';
+import Contact from './components/contacts/Contacts';
 import Footer from './components/footer/Footer';
 import HeaderContent from './components/headerContent/HeaderContent';
 
@@ -14,6 +15,7 @@ function App() {
       <HeaderContent />
       <About />
       <Review />
+      <Contact />
       <Footer />
     </div>
   );

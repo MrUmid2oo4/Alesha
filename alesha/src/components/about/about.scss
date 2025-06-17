@@ -6,14 +6,12 @@
   padding: 60px 40px;
 }
 
-// Заголовок с полосками по бокам
 .about__header {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 50px;
   position: relative;
-  
 
   h1 {
     font-size: 36px;
@@ -48,11 +46,13 @@
     img {
       width: 100%;
       height: auto;
+      max-width: 500px;
     }
   }
   
   .about__wrapper {
-    padding: 0 6rem;
+    flex: 1;
+    padding: 0 2rem;
     
     h2 {
       font-size: 36px;
@@ -63,7 +63,7 @@
     
     p {
       font-size: 16px;
-      line-height: 1.6;
+      line-height: 1.8;
       color: $gray-dark;
       margin-bottom: 20px;
       
@@ -74,19 +74,36 @@
   }
 }
 
-// Адаптивность для мобильных устройств
+@media (max-width: 1024px) {
+  .about__wrapper {
+    padding: 0 1rem;
+  }
+}
+
 @media (max-width: 768px) {
+  .about__container {
+    padding: 40px 20px;
+  }
+
+  .about__header h1 {
+    font-size: 28px;
+  }
+
   .about__content {
     flex-direction: column;
+    gap: 30px;
     
     .about__image, .about__wrapper {
       flex: 0 0 100%;
     }
-  }
-  
-  .about__header {
-    h1 {
-      font-size: 28px;
+    
+    .about__wrapper {
+      padding: 0;
+      text-align: center;
+      
+      h2 {
+        font-size: 28px;
+      }
     }
   }
 }
