@@ -20,10 +20,10 @@ const Footer = () => {
                         <div className="footer__column">
                             <h3>{t('footer_links')}</h3>
                             <ul>
-                                <li><a href="/about">{t('about_us')}</a></li>
-                                <li><a href="/services">{t('services')}</a></li>
-                                <li><a href="/reviews">{t('reviews')}</a></li>
-                                <li><a href="/contacts">{t('contacts')}</a></li>
+                                <li><a href="#about">{t('about_us')}</a></li>
+                                <li><a href="#services">{t('services')}</a></li>
+                                <li><a href="#reviews">{t('reviews')}</a></li>
+                                <li><a href="#contacts">{t('contacts')}</a></li>
                             </ul>
                         </div>
 
@@ -36,7 +36,7 @@ const Footer = () => {
                                 </li>
                                 <li>
                                     <i className="fas fa-phone-alt"></i>
-                                    <a href="tel:+998906321191">+998 90 632-11-91</a>
+                                    <a href="tel:+998906321191">+998 20 022-11-85</a>
                                 </li>
                                 <li>
                                     <i className="fas fa-phone-alt"></i>

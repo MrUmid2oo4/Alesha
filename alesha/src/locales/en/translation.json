@@ -18,6 +18,13 @@
     "footer_contacts": "Contacts",
     "services": "Services",
     "contacts": "Contacts",
+    "contact.your_name": "Your Name",
+    "contact.your_email": "Your Email",
+    "contact.your_message": "Your Message",
+    "contact.send_message": "Send Message",
+    "contact.success_message": "Message sent successfully!",
+    "contact.error_message": "Error sending message. Please try again later.",
+    "contact.request_error": "An error occurred while sending your request. Please try again later.",
     "work_hours": "Mon-Fri",
     "all_rights_reserved": "All rights reserved"
 }

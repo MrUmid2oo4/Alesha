@@ -18,6 +18,13 @@
     "footer_contacts": "Контакты",
     "services": "Услуги",
     "contacts": "Контакты",
+    "contact.your_name": "Ваше имя",
+    "contact.your_email": "Ваш email",
+    "contact.your_message": "Ваше сообщение",
+    "contact.send_message": "Отправить сообщение",
+    "contact.success_message": "Сообщение успешно отправлено!",
+    "contact.error_message": "Ошибка при отправке сообщения. Пожалуйста, попробуйте позже.",
+    "contact.request_error": "Произошла ошибка при отправке вашего запроса. Пожалуйста, попробуйте позже.",
     "work_hours": "Пн-Пт",
     "all_rights_reserved": "Все права защищены"
 }

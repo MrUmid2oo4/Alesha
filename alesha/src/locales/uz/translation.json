@@ -16,8 +16,16 @@
     "footer_description": "Biznesingiz uchun ishonchli xalqaro yuk tashish.",
     "footer_links": "Havolalar",
     "footer_contacts": "Kontaktlar",
+
     "services": "Xizmatlar",
     "contacts": "Kontaktlar",
+    "contact.your_name": "Ismingiz",
+    "contact.your_email": "Elektron pochtangiz",
+    "contact.your_message": "Xabaringiz",
+    "contact.send_message": "Xabar yuborish",
+    "contact.success_message": "Xabar muvaffaqiyatli yuborildi!",
+    "contact.error_message": "Xabar yuborishda xato. Iltimos, keyinroq qayta urinib ko'ring.",
+    "contact.request_error": "Sizning so'rovingizni yuborishda xato yuz berdi. Iltimos, keyinroq qayta urinib ko'ring.",
     "work_hours": "Dush-Jum",
     "all_rights_reserved": "Barcha huquqlar himoyalangan"
 }

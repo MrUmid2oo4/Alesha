@@ -1,154 +1,330 @@
-/* App.css */
-.container {
-    width: 1075px;
-    margin: 0 auto;
-    margin-bottom: 8rem;
-}
+// =============================================
+// Variables
+// =============================================
+$primary-color: #2cab35;
+$white: #ffffff;
+$border-color: #bdb6b6;
+$error-color: #e74c3c;
+$success-color: #2ecc71;
+$shadow-color: rgba(0, 0, 0, 0.2);
+$transition-duration: 0.3s;
 
-.green-card {
-    background-color: #2cab35;
-    border-radius: 25px;
-    height: 485px;
-    position: relative;
+// =============================================
+// Base Styles
+// =============================================
+.contact {
+  &-container {
+    max-width: 1075px;
     width: 100%;
-}
-
-.content-wrapper {
-    position: relative;
-    height: 100%;
-}
-
-.contact-form {
-    position: relative;
-    height: 100%;
-}
-
-.white-box {
-    background-color: #ffffff;
-    border: 1px solid #bdb6b6;
-    border-radius: 10px;
-    position: absolute;
-    right: 54px;
-    width: 425px;
-    padding: 15px;
+    margin: 0 auto 8rem;
+    padding: 0 20px;
     box-sizing: border-box;
-}
+  }
 
-.top-box {
-    height: 60px;
-    top: 45px;
-}
+  &-header {
+    margin-bottom: 2rem;
+    
+    h1 {
+      font-size: 2.5rem;
+      color: #333;
+      text-align: center;
+      margin: 0;
+    }
+  }
 
-.middle-box {
-    height: 60px;
-    top: 115px;
-}
+  &-card {
+    background-color: $primary-color;
+    border-radius: 25px;
+    min-height: 485px;
+    padding: 30px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
 
-.large-box {
-    height: 188px;
-    top: 185px;
-}
-
-.bottom-box {
-    height: 60px;
-    top: 383px;
+  &-content {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    position: relative;
+    z-index: 2;
+  }
+
+  &-form {
+    flex: 1;
+    min-width: 300px;
+    max-width: 425px;
+    margin-left: auto;
+  }
+
+  &-images {
+    position: absolute;
+    left: -180px;
+    top: 50px;
+    width: 743px;
+    height: 448px;
+    z-index: 1;
+  }
+
+  &-logo {
+    position: absolute;
+    width: 50%;
+    max-width: 451px;
+    height: auto;
+    top: 40%;
+    left: 55%;
+    transform: translate(-50%, -50%) scale(1.1);
+    z-index: 1;
+    opacity: 0.85;
+    filter: brightness(1.05) drop-shadow(0 0 10px rgba(0, 0, 0, 0.1));
+  }
+
+  &-product {
+    position: relative;
+    width: 90%;
+    height: auto;
+    z-index: 1;
+    transform: perspective(800px) rotateY(-8deg) translateX(30px);
+    border-radius: 10px;
+    transition: transform $transition-duration ease, box-shadow $transition-duration ease;
+    
+    &:hover {
+      transform: perspective(800px) rotateY(-10deg) translateX(35px);
+    }
+  }
 }
 
-.form-input,
-.form-textarea {
+.form {
+  &-group {
+    background-color: $white;
+    border: 1px solid $border-color;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: border-color $transition-duration ease;
+    
+    &:focus-within {
+      border-color: darken($border-color, 20%);
+      box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
+    }
+  }
+
+  &-input,
+  &-textarea {
     width: 100%;
     border: none;
     outline: none;
     font-family: inherit;
-    font-size: 16px;
-}
+    font-size: 1rem;
+    background: transparent;
+    color: #333;
+    
+    &::placeholder {
+      color: lighten(#000, 60%);
+      transition: opacity $transition-duration ease;
+    }
+    
+    &:focus::placeholder {
+      opacity: 0.5;
+    }
+  }
 
-.form-textarea {
-    height: 100%;
-    resize: none;
+  &-textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
 }
 
 .submit-button {
-    background: white;
-    color: #2cab35;
-    border: none;
-    border-radius: 8px;
-    padding: 16px 32px;
-    font-weight: 600;
-    font-size: 16px;
-    cursor: pointer;
-    width: 100%;
-    max-width: 425px;
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-
-    &:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-        color: #23992d;
-    }
-
-    &:active {
-        transform: translateY(0);
-    }
-
-    &::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg,
-                rgba(44, 171, 53, 0.1) 0%,
-                rgba(255, 255, 255, 0.3) 50%,
-                rgba(44, 171, 53, 0.1) 100%);
-        transform: translateX(-100%);
-        transition: transform 0.6s ease;
-    }
-
-    &:hover::after {
-        transform: translateX(100%);
-    }
+  background: $white;
+  color: $primary-color;
+  border: none;
+  border-radius: 8px;
+  padding: 16px 32px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  transition: all $transition-duration ease;
+  position: relative;
+  overflow: hidden;
+  
+  &:hover {
+    background: darken($white, 5%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+  
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none !important;
+  }
 }
 
-.bottom-box {
-    height: 60px;
-    top: 383px;
-    right: 54px;
-    width: 425px;
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+// =============================================
+// Status Messages
+// =============================================
+.status-message {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: 500;
+  animation: fadeIn 0.5s ease;
+  
+  &.error {
+    background-color: rgba($error-color, 0.1);
+    color: darken($error-color, 10%);
+    border-left: 4px solid $error-color;
+  }
+  
+  &.success {
+    background-color: rgba($success-color, 0.1);
+    color: darken($success-color, 10%);
+    border-left: 4px solid $success-color;
+  }
 }
 
-.images-container {
-    position: absolute;
-    left: -157px;
-    top: 69px;
-    width: 743px;
-    height: 448px;
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-.main-logo {
-    height: 312px;
-    left: 244px;
-    position: absolute;
-    top: 0;
-    width: 451px;
-    object-fit: cover;
+// =============================================
+// Responsive Styles
+// =============================================
+@media (max-width: 1200px) {
+  .contact {
+    &-images {
+      left: -120px;
+      width: 650px;
+    }
+    
+    &-product {
+      transform: perspective(800px) rotateY(-5deg) translateX(20px);
+    }
+  }
 }
 
-.product-image {
-    height: 332px;
-    position: absolute;
-    top: 116px;
-    width: 743px;
-    object-fit: cover;
+@media (max-width: 1024px) {
+  .contact {
+    &-container {
+      margin-bottom: 4rem;
+    }
+    
+    &-card {
+      padding: 30px 20px;
+    }
+    
+    &-images {
+      position: relative;
+      width: 100%;
+      top: 0%;
+      left: 0%;
+      height: auto;
+      display: flex;
+      justify-content: center;
+    }
+    
+    &-content {
+      flex-direction: column-reverse;
+    }
+    
+    &-form {
+      max-width: 100%;
+      margin-left: 0;
+      margin-right: 0;
+      margin: 0 auto; 
+      display: block;
+    }
+    
+    &-logo {
+      position: relative;
+      transform: none;
+      width: 50%;
+      opacity: 1;
+      order: 1;
+    
+      top: 40%;
+      left: 10%;
+    }
+    
+    &-product {
+      transform: none;
+      width: 90%;
+      margin: 0 auto;
+      order: 2;
+      top: -10%;
+      
+      &:hover {
+        transform: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .contact {
+    &-header h1 {
+      font-size: 2rem;
+    }
+    
+    &-card {
+      min-height: auto;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .contact {
+    &-container {
+      padding: 0 15px;
+      margin-bottom: 3rem;
+    }
+    
+    &-card {
+      border-radius: 15px;
+      padding: 20px 15px;
+    }
+    
+    &-product {
+      width: 100%;
+      border-width: 5px;
+    }
+  }
+  
+  .form {
+    &-group {
+      padding: 12px;
+    }
+    
+    &-input,
+    &-textarea {
+      font-size: 0.875rem;
+    }
+  }
+  
+  .submit-button {
+    padding: 12px 24px;
+    font-size: 0.9375rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact {
+    &-header h1 {
+      font-size: 1.8rem;
+    }
+    
+    &-logo {
+      width: 70%;
+    }
+  }
 }

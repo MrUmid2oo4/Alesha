@@ -11,11 +11,11 @@ import HeaderContent from './components/headerContent/HeaderContent';
 function App() {
   return (
     <div className="App">
-      <Header />
+      <div id="home"><Header /></div>
       <HeaderContent />
-      <About />
-      <Review />
-      <Contact />
+      <div id="about"><About /></div>
+      <div id="reviews"><Review /></div>
+      <div id="contacts"><Contact /></div>
       <Footer />
     </div>
   );

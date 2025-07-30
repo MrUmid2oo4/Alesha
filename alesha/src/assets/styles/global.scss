@@ -79,3 +79,23 @@ body {
     font-size: 28px;
   }
 }
+
+@media (max-width: 900px) {
+  .layout-container {
+    padding: 0 8px;
+  }
+  body {
+    font-size: 15px;
+  }
+}
+@media (max-width: 600px) {
+  .layout-container {
+    padding: 0 2px;
+  }
+  body {
+    font-size: 13px;
+  }
+  html, body {
+    overflow-x: hidden;
+  }
+}
