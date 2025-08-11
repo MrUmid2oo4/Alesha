@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import logo from '../../assets/image/logo/logo.png';
 import './header.scss';
 
 function Header() {
     const { t, i18n } = useTranslation();
+<<<<<<< HEAD:try_vox/src/components/header/Header.jsx
 
     const [open, setOpen] = useState(false);
     const [currentLang, setCurrentLang] = useState(
@@ -14,6 +15,17 @@ function Header() {
     const [theme, setTheme] = useState(() =>
         localStorage.getItem('theme') || 'light'
     );
+=======
+    
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [langOpen, setLangOpen] = useState(false);
+    const [currentLang, setCurrentLang] = useState(
+        i18n.language ? i18n.language.split('-')[0] : 'ru'
+    );
+    
+    const langRef = useRef(null);
+    const burgerRef = useRef(null);
+>>>>>>> 8b9807b3af7cf47216b9e79a2135dc9d6f2c72b4:alesha/src/components/header/Header.jsx
 
     const languages = [
         { code: 'ru', label: 'RU' },
@@ -22,12 +34,31 @@ function Header() {
     ];
 
     useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (langRef.current && !langRef.current.contains(event.target)) {
+                setLangOpen(false);
+            }
+            if (burgerRef.current && !burgerRef.current.contains(event.target)) {
+                setMenuOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
+    useEffect(() => {
         const onLangChanged = (lng) => {
             setCurrentLang(lng.split('-')[0]);
         };
 
         i18n.on('languageChanged', onLangChanged);
+<<<<<<< HEAD:try_vox/src/components/header/Header.jsx
 
+=======
+>>>>>>> 8b9807b3af7cf47216b9e79a2135dc9d6f2c72b4:alesha/src/components/header/Header.jsx
         return () => {
             i18n.off('languageChanged', onLangChanged);
         };
@@ -47,11 +78,23 @@ function Header() {
     const changeLanguage = (lng) => {
         i18n.changeLanguage(lng);
         setCurrentLang(lng);
+<<<<<<< HEAD:try_vox/src/components/header/Header.jsx
         setOpen(false);
+=======
+        setLangOpen(false);
+>>>>>>> 8b9807b3af7cf47216b9e79a2135dc9d6f2c72b4:alesha/src/components/header/Header.jsx
     };
 
-    const handleBlur = (e) => {
-        setTimeout(() => setOpen(false), 100);
+    const toggleLanguageMenu = (e) => {
+        e.stopPropagation();
+        setLangOpen(!langOpen);
+        setMenuOpen(false);
+    };
+
+    const toggleMobileMenu = (e) => {
+        e.stopPropagation();
+        setMenuOpen(!menuOpen);
+        setLangOpen(false);
     };
 
     const scrollToSection = (sectionId, e) => {
@@ -74,6 +117,7 @@ function Header() {
                     </div>
                     <nav className="header__nav">
                         <ul>
+<<<<<<< HEAD:try_vox/src/components/header/Header.jsx
                             <li>
                                 <a href="#home" onClick={(e) => scrollToSection('home', e)}>
                                     {t('home')}
@@ -98,30 +142,51 @@ function Header() {
                                     <span className="header__nav-underline" />
                                 </a>
                             </li>
+=======
+                            {['home', 'about', 'reviews', 'contact'].map((item) => (
+                                <li key={item}>
+                                    <a 
+                                        href={`#${item}`} 
+                                        onClick={() => setMenuOpen(false)}
+                                    >
+                                        {t(item)}
+                                        <span className="header__nav-underline" />
+                                    </a>
+                                </li>
+                            ))}
+>>>>>>> 8b9807b3af7cf47216b9e79a2135dc9d6f2c72b4:alesha/src/components/header/Header.jsx
                         </ul>
                     </nav>
                 </div>
 
+<<<<<<< HEAD:try_vox/src/components/header/Header.jsx
                 <div
                     className="header__language-select"
                     tabIndex={0}
                     onBlur={handleBlur}
+=======
+                <div 
+                    className="header__language-select" 
+                    ref={langRef}
+>>>>>>> 8b9807b3af7cf47216b9e79a2135dc9d6f2c72b4:alesha/src/components/header/Header.jsx
                 >
                     <button
-                        className={`header__language-btn${open ? ' open' : ''}`}
-                        onClick={() => setOpen(!open)}
+                        className={`header__language-btn${langOpen ? ' open' : ''}`}
+                        onClick={toggleLanguageMenu}
                         type="button"
+                        aria-label="Change language"
                     >
                         {current.label}
                         <span className="header__arrow" />
                     </button>
-                    {open && (
+                    {langOpen && (
                         <ul className="header__language-list">
                             {languages.map(l => (
                                 <li key={l.code}>
                                     <button
                                         onClick={() => changeLanguage(l.code)}
                                         className={l.code === currentLang ? 'active' : ''}
+                                        aria-label={`Change to ${l.label}`}
                                     >
                                         {l.label}
                                     </button>
@@ -130,6 +195,7 @@ function Header() {
                         </ul>
                     )}
                 </div>
+<<<<<<< HEAD:try_vox/src/components/header/Header.jsx
                 <button
                     className="header__theme-toggle"
                     onClick={toggleTheme}
@@ -153,6 +219,36 @@ function Header() {
                         </svg>
                     )}
                 </button>
+=======
+
+                <div 
+                    className={`header__burger ${menuOpen ? 'active' : ''}`}
+                    ref={burgerRef}
+                    onClick={toggleMobileMenu}
+                    aria-label="Menu"
+                >
+                    <span />
+                    <span />
+                    <span />
+                </div>
+                
+                {menuOpen && (
+                    <div className="header__mobile-menu">
+                        <ul>
+                            {['home', 'about', 'reviews', 'contact'].map((item) => (
+                                <li key={item}>
+                                    <a 
+                                        href={`#${item}`} 
+                                        onClick={() => setMenuOpen(false)}
+                                    >
+                                        {t(item)}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+>>>>>>> 8b9807b3af7cf47216b9e79a2135dc9d6f2c72b4:alesha/src/components/header/Header.jsx
             </div>
         </div>
     );

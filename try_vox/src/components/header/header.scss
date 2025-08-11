@@ -199,3 +199,125 @@
     transform: translateY(0);
   }
 }
+
+.header__burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  z-index: 200;
+  span {
+    display: block;
+    height: 4px;
+    width: 100%;
+    background: $green-main;
+    margin: 4px 0;
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+}
+
+.header__mobile-menu {
+  display: none;
+  position: absolute;
+  top: 80px;
+  right: 0;
+  width: 220px;
+  background: $white-main;
+  box-shadow: 0 2px 16px rgba(36, 36, 36, 0.07);
+  border-radius: 8px;
+  z-index: 150;
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 20px 0;
+    li {
+      margin: 0;
+      padding: 0;
+      a {
+        display: block;
+        padding: 14px 24px;
+        color: $black-main;
+        text-decoration: none;
+        font-size: 18px;
+        &:hover {
+          color: $green-main;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .header__nav {
+    display: none;
+  }
+  .header__burger {
+    display: flex;
+  }
+  .header__mobile-menu {
+    display: block;
+  }
+}
+
+// Добавляем медиа-запросы для корректного отображения
+@media (max-width: 900px) {
+  .header__nav {
+    display: none;
+  }
+  
+  .header__burger {
+    display: flex;
+    position: relative;
+    z-index: 201; // Выше чем мобильное меню
+    
+    &.active {
+      span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+      }
+    }
+  }
+  
+  .header__mobile-menu {
+    display: block;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 80px);
+    background: $white-main;
+    z-index: 200;
+    animation: slideDown 0.3s ease-out;
+  }
+  
+  .header__language-select {
+    position: static;
+    margin-left: auto;
+    margin-right: 20px;
+    z-index: 202; // Самый высокий уровень
+    
+    .header__language-list {
+      left: auto;
+      right: 0;
+    }
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
