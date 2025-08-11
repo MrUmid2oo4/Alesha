@@ -1,57 +1,6 @@
 {
-<<<<<<< HEAD:try_vox/package.json
-  "name": "alesha",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@fortawesome/fontawesome-free": "^6.7.2",
-    "@testing-library/dom": "^10.4.0",
-    "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.3.0",
-    "@testing-library/user-event": "^13.5.0",
-    "framer-motion": "^12.18.1",
-    "i18next": "^25.2.1",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "react-i18next": "^15.5.3",
-    "react-icons": "^5.5.0",
-    "react-router-dom": "^7.6.3",
-    "react-scripts": "^5.0.1",
-    "react-slick": "^0.30.3",
-    "slick-carousel": "^1.8.1",
-    "swiper": "^11.2.8",
-    "web-vitals": "^2.1.4"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
-  "devDependencies": {
-    "gh-pages": "^6.3.0",
-    "sass": "^1.89.2"
-  }
-=======
-    "name": "alesha",
+    "homepage": "https://MrUmid2oo4.github.io/TryVox",
+    "name": "tryvox",
     "version": "0.1.0",
     "private": true,
     "dependencies": {
@@ -102,5 +51,4 @@
     "devDependencies": {
         "sass": "^1.89.2"
     }
->>>>>>> 8b9807b3af7cf47216b9e79a2135dc9d6f2c72b4:alesha/package.json
 }
