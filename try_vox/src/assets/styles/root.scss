@@ -1,0 +1,33 @@
+// Theme variables
+:root {
+  --green-main: #5E17EB;
+  --green-dark: #4812c0;
+  --black-main: #000000;
+  --white-main: #FFFFFF;
+  --gray-dark: #242424;
+  --shadow-color: rgba(36, 36, 36, 0.07);
+  --dark-blue: #112f52;
+  --blue: #175cad;
+  --light-blue: #8eabcd;
+}
+
+[data-theme="dark"] {
+  --green-main: #7E3FF2;
+  --green-dark: #6632c9;
+  --black-main: #FFFFFF;
+  --white-main: #121212;
+  --gray-dark: #E0E0E0;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --dark-blue: #112f52;
+  --blue: #175cad;
+  --light-blue: #8eabcd;
+}
+
+$green-main: var(--green-main);
+$green-dark: var(--green-dark);
+$black-main: var(--black-main);
+$white-main: var(--white-main);
+$gray-dark: var(--gray-dark);
+$dark-blue: var(--dark-blue);
+$blue: var(--blue);
+$light-blue: var(--light-blue);

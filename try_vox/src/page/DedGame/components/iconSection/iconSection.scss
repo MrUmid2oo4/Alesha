@@ -1,0 +1,26 @@
+.icon-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+    padding: 40px 20px;
+}
+
+.icon-item {
+    width: 100%;
+    max-width: 650px;
+    height: auto;
+    position: relative;
+    
+    img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15));
+        transition: transform 0.3s ease;
+        
+        &:hover {
+            transform: scale(1.02);
+        }
+    }
+}   

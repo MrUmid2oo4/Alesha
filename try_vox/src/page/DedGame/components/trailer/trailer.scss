@@ -1,0 +1,61 @@
+@import '../../../../assets/styles/root.scss';
+
+.trailer__container {
+    max-width: 1440px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.trailer__header {
+    text-align: center;
+    margin-bottom: 40px;
+
+    h2 {
+        font-size: 36px;
+        font-weight: 600;
+        color: $black-main;
+        position: relative;
+        display: inline-block;
+        padding-bottom: 15px;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: $green-main;
+            border-radius: 2px;
+        }
+    }
+}
+
+.trailer__content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.trailer__video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .trailer__header h2 {
+        font-size: 28px;
+    }
+}

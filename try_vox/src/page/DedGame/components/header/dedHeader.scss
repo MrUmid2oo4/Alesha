@@ -1,0 +1,332 @@
+@import '../../../../assets/styles/root.scss';
+
+// Keyframes animations
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.header__container {
+    width: 100%;
+    background: $white-main;
+    box-shadow: 0 2px 16px rgba(36, 36, 36, 0.07);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+
+.ded-header__wrapper {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+
+    @media (max-width: 768px) {
+        padding: 0 20px;
+    }
+}
+
+.ded-header__content {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.ded-header__logo {
+    text-decoration: none;
+    display: block;
+
+    img {
+        height: 48px;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+}
+
+// Navigation styles
+.ded-header__nav {
+    margin-left: 20px;
+
+    @media (max-width: 1024px) {
+        display: none; // Hide on mobile, implement mobile menu separately
+    }
+
+    ul {
+        display: flex;
+        gap: 36px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    li {
+        position: relative;
+    }
+
+    a {
+        color: $light-blue;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 18px;
+        letter-spacing: 0.5px;
+        padding: 8px 12px;
+        border-radius: 6px;
+        transition: all 0.3s ease;
+        display: inline-block;
+        position: relative;
+
+        &:hover,
+        &.active {
+            color: $blue;
+            background: rgba($blue, 0.08);
+        }
+    }
+}
+
+// Navigation underline animation
+.ded-header__nav-underline {
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background: $blue;
+    border-radius: 2px;
+    transform: scaleX(0);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: left;
+    pointer-events: none;
+}
+
+.ded-header__nav a:hover .ded-header__nav-underline,
+.ded-header__nav a.active .ded-header__nav-underline {
+    transform: scaleX(1);
+}
+
+// Actions container (language + theme toggle)
+.ded-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+// Language selector styles
+.ded-header__language-select {
+    position: relative;
+    min-width: 60px;
+}
+
+.ded-header__language-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: 1px solid rgba($light-blue, 0.2);
+    color: $light-blue;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background: rgba($blue, 0.08);
+        border-color: $blue;
+        color: $blue;
+    }
+
+    &.open {
+        background: rgba($blue, 0.08);
+        color: $blue;
+    }
+}
+
+// Arrow indicator for language selector
+.ded-header__arrow {
+    display: inline-block;
+    width: 3px;
+    height: 3px;
+    margin-left: 4px;
+    border: solid currentColor;
+    border-width: 0 2px 2px 0;
+    padding: 2px;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease;
+}
+
+.ded-header__language-btn.open .ded-header__arrow {
+    transform: rotate(-135deg);
+}
+
+// Language dropdown list
+.ded-header__language-list {
+    position: absolute;
+    top: 120%;
+    left: 0;
+    background: $dark-blue;
+    border: 1px solid rgba($light-blue, 0.1);
+    border-radius: 6px;
+    box-shadow: 0 4px 20px rgba($black-main, 0.2);
+    min-width: 120px;
+    z-index: 10;
+    padding: 6px;
+    animation: fadeIn 0.3s ease;
+    list-style: none;
+
+    li {
+        button {
+            width: 100%;
+            background: none;
+            border: none;
+            color: $light-blue;
+            padding: 10px 16px;
+            text-align: left;
+            cursor: pointer;
+            font-size: 15px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background: rgba($blue, 0.08);
+                color: $blue;
+            }
+
+            &.active {
+                color: $blue;
+                background: rgba($blue, 0.08);
+            }
+        }
+    }
+}
+
+// Theme toggle button
+.ded-header__theme-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: $light-blue;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background-color: rgba($blue, 0.08);
+        color: $blue;
+    }
+
+    svg {
+        width: 22px;
+        height: 22px;
+        transition: transform 0.3s ease;
+
+        &:hover {
+            transform: rotate(30deg);
+        }
+    }
+}
+
+// Mobile styles
+@media (max-width: 768px) {
+    .ded-header__wrapper {
+        padding: 0 20px;
+    }
+
+    .ded-header__content {
+        gap: 20px;
+    }
+
+    .ded-header__logo img {
+        height: 40px;
+    }
+
+    .ded-header__actions {
+        gap: 12px;
+    }
+
+    .ded-header__language-btn {
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+}
+
+.ded-header__steam-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background: $blue;
+    color: $white-main;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    text-decoration: none;
+    cursor: pointer;
+    box-shadow:
+        0 4px 20px rgba(0, 0, 0, 0.1),
+        inset 0 -2px 0 rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease-in-out;
+    backdrop-filter: blur(4px);
+
+    &:hover {
+        background: $blue;
+        transform: translateY(-2px);
+        box-shadow:
+            0 6px 24px rgba(0, 0, 0, 0.2),
+            inset 0 -2px 0 rgba(0, 0, 0, 0.2);
+
+        .steam-icon {
+            transform: scale(1.1);
+        }
+    }
+
+    &:active {
+        transform: scale(0.97);
+        box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .steam-icon {
+        width: 20px;
+        height: 20px;
+        transition: transform 0.2s ease-in-out;
+        fill: currentColor;
+    }
+
+    @media (max-width: 768px) {
+        padding: 10px 20px;
+        font-size: 14px;
+
+        .steam-icon {
+            width: 18px;
+            height: 18px;
+        }
+    }
+}
+
+[data-theme="dark"] .ded-header__steam-button {
+    background: $blue;
+    color: $black-main;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+

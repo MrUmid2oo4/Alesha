@@ -1,0 +1,187 @@
+@import '../../assets/styles/root.scss';
+
+// Подключение Font Awesome
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/brands"; // для брендовых иконок
+@import "~@fortawesome/fontawesome-free/scss/solid"; // для solid иконок
+@import "~@fortawesome/fontawesome-free/scss/regular"; // для regular иконок
+
+
+
+.footer {
+    background-color: $white-main;
+    padding: 50px 0 30px;
+    border-top: 1px solid rgba($gray-dark, 0.1);
+
+    &__container {
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 40px;
+    }
+
+    &__top {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 40px;
+        margin-bottom: 30px;
+    }
+
+    &__logo {
+        flex: 1;
+        min-width: 250px;
+        margin-top: 25px;
+
+        .logoImage {
+            width: 120px;
+            height: auto;
+        }
+
+        h2 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: $green-main;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 14px;
+            line-height: 1.6;
+            color: $gray-dark;
+            max-width: 300px;
+        }
+    }
+
+    &__links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+    }
+
+    &__column {
+        min-width: 200px;
+
+        h3 {
+            font-family: "Montserrat", sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: $black-main;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+
+            li {
+                margin-bottom: 12px;
+                font-size: 14px;
+                color: $gray-dark;
+
+                a {
+                    color: inherit;
+                    text-decoration: none;
+                    transition: color 0.2s;
+
+                    &:hover {
+                        color: $green-main;
+                    }
+                }
+            }
+        }
+    }
+
+    &__contacts-list {
+        li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            i {
+                color: $green-main;
+                font-size: 16px;
+                min-width: 20px;
+                text-align: center;
+            }
+
+            a {
+                color: $gray-dark;
+                transition: color 0.2s;
+
+                &:hover {
+                    color: $green-main;
+                }
+            }
+        }
+    }
+
+    &__divider {
+        height: 1px;
+        background-color: rgba($gray-dark, 0.1);
+        margin: 20px 0;
+    }
+
+    &__bottom {
+        display: flex;
+        flex-direction: column; // Изменяем на колонку
+        align-items: center; // Центрируем по горизонтали
+        gap: 20px;
+
+        p {
+            font-size: 13px;
+            color: $gray-dark;
+            margin: 0;
+            order: 2;
+        }
+    }
+
+    &__social {
+        display: flex;
+        gap: 15px;
+        order: 1;
+
+        a {
+            color: $green-main;
+            font-size: 25px;
+            transition: color 0.2s;
+
+            &:hover {
+                color: $green-dark;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 40px 0 20px;
+
+        &__container {
+            padding: 0 20px;
+        }
+
+        &__top {
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        &__links {
+            flex-direction: column;
+            gap: 30px;
+            width: 100%;
+        }
+
+        &__column {
+            min-width: 100%;
+        }
+
+        &__contacts-list {
+            li {
+                flex-wrap: wrap;
+            }
+        }
+    }
+}

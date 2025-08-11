@@ -1,0 +1,101 @@
+@import '../../assets/styles/root.scss';
+
+.team__card {
+  background-color: $white-main;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  height: 100%;
+  transition: transform 0.3s, box-shadow 0.3s;
+  
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+    
+    .team__member-photo {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.team__card-wrapper {
+  display: flex;
+  height: 100%;
+}
+
+.team__photo-container {
+  width: 35%;
+  overflow: hidden;
+  position: relative;
+}
+
+.team__member-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.team__content {
+  width: 65%;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 4px;
+    height: 40px;
+    background: $green-main;
+    border-radius: 0 4px 4px 0;
+  }
+}
+
+.team__name {
+  font-size: 20px;
+  font-weight: 600;
+  color: $black-main;
+  margin-bottom: 8px;
+}
+
+.team__specialty {
+  font-size: 14px;
+  color: $green-main;
+  font-weight: 500;
+  margin-bottom: 15px;
+  display: inline-block;
+}
+
+.team__message {
+  font-size: 14px;
+  line-height: 1.6;
+  color: $gray-dark;
+}
+
+@media (max-width: 768px) {
+  .team__card-wrapper {
+    flex-direction: column;
+  }
+  
+  .team__photo-container,
+  .team__content {
+    width: 100%;
+  }
+  
+  .team__photo-container {
+    height: 200px;
+  }
+  
+  .team__content::before {
+    top: 0;
+    left: 20px;
+    width: 40px;
+    height: 4px;
+    border-radius: 0 0 4px 4px;
+  }
+}

@@ -1,0 +1,140 @@
+@import '../../assets/styles/root.scss';
+
+.games__container {
+  max-width: 1440px;
+  margin: 80px auto;
+  padding: 0 20px;
+}
+
+.games__header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+  position: relative;
+
+  h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: $black-main;
+    padding: 0 30px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+  
+  &::before, &::after {
+    content: '';
+    margin-top: 5px;
+    height: 4px;
+    background-color: $green-main;
+    border-radius: 10px;
+    flex: 1;
+    max-width: 50px;
+  }
+}
+
+.games__description {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  font-size: 16px;
+  line-height: 1.6;
+  color: $gray-dark;
+}
+
+.games__content {
+  padding: 20px 0;
+  position: relative;
+}
+
+.games__slider-container {
+  padding: 20px 10px 60px;
+  position: relative;
+}
+
+.games__slider {
+  margin-bottom: 40px;
+  
+  .swiper-slide {
+    height: auto;
+  }
+  
+  .swiper-button-next,
+  .swiper-button-prev {
+    color: $green-main;
+    
+    &::after {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+/* Custom pagination styling */
+.games__custom-pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    border-radius: 50%;
+    background: rgba(94, 23, 235, 0.3);
+    margin: 0 5px;
+    opacity: 1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .swiper-pagination-bullet-active {
+    background: $green-main;
+    width: 30px;
+    border-radius: 5px;
+  }
+}
+
+// Make cards same height in slider
+.swiper-slide {
+  height: auto !important;
+  
+  .game-card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 768px) {
+  .games__header h1 {
+    font-size: 28px;
+  }
+  
+  .games__slider {
+    .swiper-button-next,
+    .swiper-button-prev {
+      display: none;
+    }
+  }
+  
+  .games__custom-pagination {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .games__slider-container {
+    padding: 10px 0 50px;
+  }
+}

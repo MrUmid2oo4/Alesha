@@ -1,0 +1,118 @@
+@import '../../assets/styles/root.scss';
+
+.dedgame-about__container {
+    padding: 60px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: transparent;
+    overflow: hidden;
+}
+
+.dedgame-about__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+
+    @media (max-width: 768px) {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+.dedgame-about__image {
+    position: relative;
+    perspective: 1000px;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        inset: -20%;
+        background: radial-gradient(
+            circle at center,
+            rgba($green-main, 0.1) 0%,
+            transparent 70%
+        );
+        border-radius: 50%;
+        filter: blur(15px);
+        animation: pulse 3s ease-in-out infinite;
+    }
+}
+
+.dedgame-about__image-magnitofon {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.15));
+    cursor: grab;
+    
+    &:active {
+        cursor: grabbing;
+    }
+}
+
+.features-list {
+    display: grid;
+    gap: 30px;
+}
+
+.feature-card {
+    background: linear-gradient(
+        145deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.05) 100%
+    );
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 4px;
+        height: 100%;
+        background: var(--card-color);
+        transform: scaleY(0);
+        transition: transform 0.3s ease;
+    }
+    
+    &:hover::before {
+        transform: scaleY(1);
+    }
+
+    .feature-icon {
+        font-size: 2.5em;
+        color: var(--card-color);
+        margin-bottom: 20px;
+        filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+    }
+
+    h3 {
+        color: $black-main;
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        font-weight: 600;
+    }
+
+    p {
+        color: $gray-dark;
+        line-height: 1.6;
+        opacity: 0.9;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}

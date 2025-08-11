@@ -1,0 +1,77 @@
+@import '../../../../assets/styles/root.scss';
+
+.screenshots__container {
+    max-width: 1440px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.screenshots__header {
+    text-align: center;
+    margin-bottom: 40px;
+
+    h2 {
+        font-size: 36px;
+        font-weight: 600;
+        color: $black-main;
+        position: relative;
+        display: inline-block;
+        padding-bottom: 15px;
+
+        &::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: $green-main;
+            border-radius: 2px;
+        }
+    }
+}
+
+.screenshots__content {
+    .swiper {
+        padding: 20px 5px 60px;
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+        color: $green-main;
+
+        &:hover {
+            color: $green-dark;
+        }
+    }
+
+    .swiper-pagination-bullet {
+        background: $green-main;
+    }
+}
+
+.screenshot__item {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+
+    &:hover {
+        transform: translateY(-5px);
+    }
+}
+
+.screenshot__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .screenshots__header h2 {
+        font-size: 28px;
+    }
+}

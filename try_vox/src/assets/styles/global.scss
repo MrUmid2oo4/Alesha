@@ -1,0 +1,85 @@
+@import './root.scss';
+
+// Layout variables
+$container-width: 1920px;
+$columns: 12;
+$column-width: 88px;
+$gutter: 20px;
+
+// Global reset and base styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; 
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.6;
+  color: $black-main;
+  background-color: $white-main;
+  overflow-x: hidden;
+}
+
+// Google Fonts import
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+.layout-container {
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 0 $gutter;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+@mixin col($n) {
+  width: calc(
+    #{$column-width * $n} + #{$gutter * ($n - 1)}
+  );
+  margin-right: $gutter;
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+// Common utility classes
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+  position: relative;
+
+  h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: $black-main;
+    padding: 0 30px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+  
+  &::before, &::after {
+    content: '';
+    margin-top: 5px;
+    height: 4px;
+    background-color: $green-main;
+    border-radius: 10px;
+    flex: 1;
+    max-width: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-header h1 {
+    font-size: 28px;
+  }
+}
